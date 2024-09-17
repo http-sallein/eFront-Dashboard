@@ -1,0 +1,606 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+
+    --brand-color: #9E6EFE;
+    
+    --brand-color-transparent: #9E6EFE3D;
+
+    --dark-10: #2D3748;
+    --dark-20: #718096;
+    --dark-30: #F9F9F9;
+    --dark-40: #FFFFFF;
+
+    --support-01: #2962FF;
+    --support-02: #0BB07B;
+    --support-02: #FFCE52;
+    --support-03: #F03D3D;  
+    --support-04: #E0E0E0;
+
+    --background-logout: #f03d3d08;
+    --background-logout-hover: #f03d3d18;
+    --background-main: rgb(245, 245, 245);
+
+    --text-color: #272727;
+    --secundary-text-color: #696969;
+}
+
+body {
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 32px;
+    margin: 30px 0;
+}
+
+h1::first-letter {
+    color: var(--brand-color)
+}
+
+nav {
+    display: flex;
+    width: 300px;
+    min-height: 100dvh;
+    flex-direction: column;
+    position: fixed;
+    text-align: center;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+    width: 100%;
+
+}
+
+li {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 17px;
+    cursor: pointer;
+    transition: all .3s ease;
+    z-index: 1;
+    border-radius: 0px 0px 0px 0px;
+    position: relative;
+}
+
+li::before, li::after {
+    content: '';
+}
+
+li.active::before, li.active::after {
+    content: "";
+    position: absolute;
+    aspect-ratio: 1/1;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 100vw;
+    right: 0;
+    background-color: white;
+}
+
+li.active::before {
+    box-shadow: 5px 5px 0px 5px var(--background-main);
+    border-radius: 0px 0px 10px 0px;
+    top: -17px;
+}
+
+li.active::after {
+    border-radius: 0px 10px 0px 0px;
+    box-shadow: 5px -5px 0px 5px var(--background-main);
+    bottom: -17px;
+}
+
+li:hover {
+    background-color: var(--brand-color-transparent);
+    color: var(--brand-color);
+}
+
+hr {
+    border: 1px solid var(--dark-30);
+    height: 2px;
+    width: 90%;
+    margin: auto;
+}
+li > p {
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+/* .active {
+    color: var(--brand-color);
+    background-color: var(--brand-color-transparent);
+
+    transition: all .3s ease;
+} */
+
+.active {
+    color: var(--brand-color);
+    background-color: var(--background-main);
+
+    transition: all .3s ease;
+}
+
+#logout {
+    color: var(--support-03);
+    background-color: var(--background-logout);
+    transition: background .3s ease;
+}
+
+#logout:hover {
+    background-color: var(--background-logout-hover);
+}
+
+.icon {
+    width: 24px;
+    font-size: 24px;
+}
+
+footer {
+    position: absolute;
+    bottom: 5px;
+    width: 100%;
+    text-align: center;
+    padding: 0px 5px;
+}
+
+/* Main */
+
+main {
+    position: absolute;
+    width: calc(100% - 300px);
+    min-height: 100vh;
+    background-color: var(--background-main);
+    top: 0;
+    right: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 50px
+}
+
+header div:nth-child(1) h2 {
+    color: var(--text-color);
+    font-size: 28px;
+    font-weight: 500;
+}
+
+header div:nth-child(1) p {
+    color: var(--secundary-text-color);
+    font-size: 18px;
+}
+
+header div:nth-child(2) {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+header div:nth-child(2) section {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+header div:nth-child(2) section ion-icon {
+    position: relative;
+    font-size: 24px;
+}
+
+header div:nth-child(2) section ion-icon:nth-child(2)::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: red;
+}
+
+figure {
+    display: flex;
+    align-items: center;
+    gap: 5px;    
+}
+
+figure > img {
+    width: 34px;
+    border-radius: 50%;   
+}
+
+#grid__layout {
+    padding: 20px;
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 300px));
+    grid-template-rows: 240px 170px 240px;
+
+    grid-template-areas: 
+        'dashboard dashboard historico historico'
+        'compras total vendas reembolsos'
+        'tableCompras tableCompras tableCompras tableCompras'
+    ;
+
+    justify-content: center;
+    align-content: center;
+
+    gap: 32px;
+    width: auto;
+}
+
+#grid__layout > :is(div) {
+    padding: 18px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+#grid__layout > div, canvas > h2 {
+    font-weight: 400;
+}
+
+#historico {
+    grid-area: historico;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#historico > h2 {
+    font-size: 20px;
+    margin-bottom: 4px;
+}
+
+#historico > section {
+    background-color: var(--dark-30);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+#historico > section > p {
+    color: var(--brand-color);
+}
+
+#historico > section > p:last-child {
+    font-weight: 700;
+}
+
+#dashboard {
+    background-color: yellow;
+    grid-area: dashboard;
+    position: relative;
+}
+
+#dashboard > canvas {
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+}
+
+.template_data > h2 {
+    margin-bottom: 14px;
+}
+
+.template_data > p {
+    margin-bottom: 8px;
+}
+
+.template_data > section {
+    display: flex;
+    background-color: rgba(169, 247, 169, 0.535);
+    border-radius: 10px;
+    padding: 5px 7px;
+    color: green;
+    font-weight: 500;
+    align-items: center;
+    gap:5px;
+    width: 85px
+}
+
+.template_data > h2 {
+    font-size: 20px;
+}
+
+#vendas {
+    background-color: violet;
+    grid-area: vendas;
+}
+
+#vendas > section {
+    background-color: rgba(255, 0, 0, 0.145);
+    color: red;
+}
+
+#totalLiquido {
+    background-color: aquamarine;
+    grid-area: total;
+}
+
+#compras {
+    background-color: tomato;
+    grid-area: compras;
+}
+
+#reembolsos {
+    background-color: green;
+    grid-area: reembolsos;
+}
+
+#reembolsos section {
+    background-color: rgba(255, 0, 0, 0.145);
+    color: red;
+}
+
+#table {
+    background-color: indianred;
+    grid-area: tableCompras;
+}
+
+#table > table > tbody {
+    color: var(--secundary-text-color);
+    text-transform: capitalize;
+}
+
+table {
+    width: 100%;
+    height: 100%;
+    padding: 24px 24px 24px 0;
+}
+
+thead > tr, th{
+    text-align: left;
+}
+
+tbody > tr, td {
+    border-bottom: 1px solid var(--dark-20);
+    height: 2px;
+
+}
+
+tbody > tr > td:last-child{
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    height: 100%;
+}
+
+/* Classes format */
+.text {
+    color: var(--text-color);
+}
+
+.text::first-letter {
+    text-transform: capitalize;
+}
+
+.first_name {
+    text-transform: capitalize;
+}
+
+.format__number {
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.icon_situacao {
+    width: 14px;
+}
+
+.aprovado {
+    fill: #0BB07B;
+}
+
+.pendente {
+    fill: yellow;
+}
+
+@media (max-width: 1025px) {
+
+    nav {
+        width: 300px;
+    }
+
+    #grid__layout {
+        display: flex;
+        flex-direction: column;
+    }    
+
+    #dashboard {
+        width: 100%;
+        height: 350px;
+    }
+}
+
+@media only screen and (max-width: 780px){
+
+    .active {
+        color: currentColor;
+        background-color: transparent;
+    }
+
+    h1 {
+        font-size: 32px;
+        margin: 20px 0;
+    }
+
+    nav {
+        position: absolute;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        visibility: hidden;
+
+        top: 0;
+        left: 0;
+        
+        height: 100dvh;
+        width: 0;
+        background-color: white;
+
+        height: 100dvh;
+        overflow-x: hidden;
+
+        transition: all .3s ease;
+
+    }
+    
+    nav.menuActive {
+        background-color: white;
+        width: 100%;
+        visibility: visible;
+        z-index: 1;
+    } 
+
+    nav.menuActive ul li.active {
+        color: var(--brand-color);
+        background-color: var(--brand-color-transparent);
+    }
+    
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        width: 80%;
+        align-items: center;
+    }
+    
+    li {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 17px 100px;
+        flex-grow: 1;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background .3s ease;
+        z-index: 1;
+    }
+
+    header > div > section > button {
+        display: flex;
+        padding: .6rem .5rem;
+        border: none;
+        background: none;
+        cursor: pointer;
+        gap: .5rem;
+        border-radius: 5px;
+    }
+
+    button > span {
+        width: 20px;
+        border-top: 2px solid;
+
+        z-index: 2;
+    }
+
+    button > span::after, button > span::before {
+        content: '';
+        display: block;
+        width: 20px;
+        height: 2px;
+        background-color: currentColor;
+        margin-top: 5px;
+        transition: .3s;
+    }
+
+    main {
+        width: 100%;
+        position: block;
+        height:auto;
+    }
+
+    #grid__layout {
+        grid-template-columns: 90%;
+        grid-template-rows: repeat(auto-fill, 200px);
+
+        grid-template-areas: 
+            'dashboard'
+            'historico'
+            'compras' 
+            'total' 
+            'vendas'
+            'reembolsos'
+            'tableCompras'
+        ;
+
+        height: 100%;
+        padding-bottom: 24px;
+    }
+
+    header {
+        flex-direction: column-reverse;
+        padding: 20px 24px;
+        gap: 24px
+    }
+
+    header > div:nth-child(2) {
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    figure > p {
+        display: none;
+    }
+
+    figure > img {
+        margin-left: 16px;
+    }
+
+    #historico {
+        grid-area: historico;    
+        gap: 10px;
+    }
+    
+    #historico > h2 {
+        margin-bottom: 2px;
+    }
+    
+    #historico > section {
+        padding: 5px;
+    }
+
+    table {
+        display: block;
+        width: 100%;
+        height: auto;
+
+        overflow-x: scroll;
+    }
+
+    tbody > tr > td:last-child{
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        height: 65px;
+    }
+
+    #table > h2 {
+        font-size: 20px;
+    }
+
+    tr > td {
+        padding: 7px 15px 7px 0;
+    }
+
+    li.active::before, li.active::after {
+        display: none;
+    }
+}

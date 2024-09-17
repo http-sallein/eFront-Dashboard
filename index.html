@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dashboard</title>
+
+        <link rel="stylesheet" href="./styles/style.css">
+        <link rel="shortcut icon" href="./styles/images/Favicon.png" type="image/x-icon/png">
+
+        <!-- Material icons -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    </head>
+    <body>
+
+        <nav>
+            <div>
+                <h1>eFront</h1>
+            </div>
+            <ul>
+                <li class="active">
+                    <span class="material-symbols-outlined" class="icon">grid_view</span>
+                    <p>dashboard</p>
+                </li>
+
+                <li>
+                    <ion-icon name="wallet-outline" class="icon"></ion-icon>
+                    <p>carteira</p>
+                </li>
+
+                <li>
+                    <span class="material-symbols-outlined icon">payments</span>
+                    <p>transações</p>
+                </li>
+
+                <li>
+                    <span class="material-symbols-outlined icon">support_agent</span>
+                    <p>suporte</p>
+                </li>
+
+                <hr>
+
+                <li>
+                    <ion-icon name="settings-outline" class="icon"></ion-icon>
+                    <p>ajuste</p>
+                </li>
+
+                <li id="logout" class="logout">
+                    <ion-icon name="power-outline" class="icon"></ion-icon>
+                    <p>desconectar</p>
+                </li>
+            </ul>
+        </nav>
+
+        <main>
+            <header>
+                <div>
+                    <h2 class="text">olá, DevSaLLein</h2> 
+                    <p class="text">aqui estão as informações sobre suas vendas</p>
+                </div>
+                <div>
+                    <section>
+                        <button type="button" id="menu"><span></span></button>
+                    </section>
+                    <section>
+                        <ion-icon name="search-outline"></ion-icon>
+                        <ion-icon name="notifications-outline"></ion-icon>
+
+                        <figure>
+                            <img src="./styles/images/me.jpg" alt="foto minha">
+                            <p class="text">devSaLLein</p>
+                        </figure>
+                    </section>
+                </div>
+            </header>
+
+            <section id="grid__layout" class="text">
+                <div id="dashboard">
+                    <canvas id="chart"></canvas>
+                </div>
+
+                <div id="historico">
+                    <h2 class="text">histórico de transações</h2>
+
+                    <section>
+                        <p>ontem</p>
+                        <p>R$ -540,32</p>
+                    </section>
+
+                    <section>
+                        <p >quinta-feira</p>
+                        <p>R$ -273,90</p>
+                    </section>
+
+                    <section>
+                        <p>segunda-feira</p>
+                        <p>R$ -1456,20</p>  
+                    </section>
+                </div>
+
+                <div id="compras" class="template_data">
+                    <h2 class="text">compras canceladas</h2>
+
+                    <p class="format__number">R$ 50,12</p>
+
+                    <section>
+                        <ion-icon name="trending-up-outline"></ion-icon>
+                        <span>+ 51%</span>
+                    </section>
+                </div>
+                
+                <div id="totalLiquido" class="template_data">
+                    <h2 class="text">total líquido</h2>
+
+                    <p class="format__number">R$ 1.412,00</p>
+
+                    <section>
+                        <ion-icon name="trending-up-outline"></ion-icon>
+                        <span>+ 12%</span>
+                    </section>
+                </div>
+
+                <div id="vendas" class="template_data">
+                    <h2 class="text">total de vendas</h2>
+
+                    <p class="format__number">R$ 400,23</p>
+
+                    <section>
+                        <ion-icon name="trending-down-outline"></ion-icon>
+                        <span>- 23%</span>
+                    </section>
+                </div>
+
+                <div id="reembolsos" class="template_data">
+                    <h2 class="text">reembolsos</h2>
+
+                    <p class="format__number">R$ 120,23</p>
+
+                    <section>
+                        <ion-icon name="trending-down-outline"></ion-icon>
+                        <span>- 33%</span>
+                    </section>
+                </div>
+
+                <div id="table">
+                    <h2 class="text">histórico  de compradores</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th class="text">data</th>
+                                <th class="text">nome</th>
+                                <th class="text">local</th>
+                                <th class="text">valor</th>
+                                <th class="text">situação</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#123456</td>
+                                <td>02/08/2023</td>
+                                <td class="first_name">isaac lima</td>
+                                <td class="first_name">ceará</td>
+                                <td>R$ 200,00</td>
+                                <td>
+                                    <box-icon type='solid' name='circle' class="icon_situacao aprovado"></box-icon>
+                                    <p>aprovado</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#654321</td>
+                                <td>12/12/2023</td>
+                                <td class="first_name">dev saLLein</td>
+                                <td class="first_name">new york</td>
+                                <td>R$ 450,00</td>
+                                <td>
+                                    <box-icon type='solid' name='circle' class="icon_situacao pendente"></box-icon>
+                                    <p>pendente</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
+        <!-- Ionicons icons -->
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+        <!-- BoxIcons -->
+        <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+
+        <script src="./script/script.js" type="module"></script>
+
+        <!-- ChartJS -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+        <script>
+
+            let dashboard = document.querySelector('#chart');
+
+            new Chart(dashboard, {
+                type: 'bar',
+                data: {
+                labels: ['Jan', 'Fev', 'Mac', 'Maio', 'Abril', 'Jun', 'Jul'],
+                datasets: [{
+                    label: '',
+                    data: [500, 880, 1470, 1170, 1690, 1930, 880],
+                    backgroundColor: [
+                        '#9E6EFE3D'
+                    ],
+                    hoverBackgroundColor: ['#9E6EFE'],
+                    borderRadius: 10,
+                    borderWidth: 1,
+                    grouped: false
+                }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                        beginAtZero: true,
+                        grid: {
+                            offset: false
+                            }
+                        },
+                    },
+
+                    plugins: {
+                        title:{
+                            display: true,
+                            text: 'Gráfico de receitas',
+                            align: 'start',
+                            font: {size: '20px', weight: '500'},
+                            color: '#272727'
+                        }
+                    },
+                }
+            });
+        </script>
+    </body>
+</html>
